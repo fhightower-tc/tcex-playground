@@ -1,0 +1,8 @@
+{
+  "displayName": "TCEX Playground",
+  "languageVersion": "3.6.x",
+  "params" : [],
+  "programLanguage": "python",
+  "programMain": "tcex_playground",
+  "programVersion": "0.1.0"
+}

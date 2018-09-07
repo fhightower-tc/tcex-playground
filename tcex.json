@@ -1,0 +1,19 @@
+{
+  "profiles": [{
+    "args": {
+      "api_access_id": "$env.API_ACCESS_ID",
+      "api_secret_key": "$envs.API_SECRET_KEY",
+      "logging": "debug",
+      "tc_api_path": "$env.TC_API_PATH",
+      "tc_log_path": "log",
+      "tc_log_to_api": true,
+      "tc_out_path": "log",
+      "tc_temp_path": "log",
+      "api_default_org": "$env.API_DEFAULT_ORG"
+    },
+    "groups": ["run-all"],
+    "install_json": "install.json",
+    "quiet": false,
+    "profile_name": "default"
+  }]
+}
