@@ -38,10 +38,12 @@ To setup environment variables for TCEX on a unix-based system do the following:
 
 1. Edit the following information with your credentials:
 
+    ```
     export API_ACCESS_ID="01234567899876543210"
     export API_SECRET_KEY="adfsdfafafsfsfasdfasfadsasdafdsf"
     export TC_API_PATH="https://sandbox.threatconnect.com/api"
     export API_DEFAULT_ORG='My Organization'
+    ```
 
 2. Open `~/.bash_profile` () in a text editor and paste the content you just edited.
 3. Save `~/.bash_profile` and close the terminal.
@@ -51,6 +53,19 @@ To setup environment variables for TCEX on a unix-based system do the following:
 
 I'm not entirely sure how to set environment variables on windows, but [this](https://www.techjunkie.com/environment-variables-windows-10/) may help. If you get this working on windows, please [let me know](https://hightower.space/contact/) so I can update this documentation.
 
+You will need to set the following environment variables:
+
+- API_ACCESS_ID
+- API_SECRET_KEY
+- TC_API_PATH
+- API_DEFAULT_ORG
+
 ## Usage
 
-Now, we're ready to go! Navigate to the directory where you cloned this project (go into the `tcex-playground` directory). Try running: `tclib` (this is the TCEX function to install all of the packages you will need for testing the code in the tcex-playground). Once this finishes, run: `tcrun` (if this throws an error which says something like `IndexError: list index out of range`, try running: `tcrun --0`). This should work! If it doesn't, feel free to raise an [issue](https://gitlab.com/fhightower-tc/tcex-playground/issues/new) or [contact me](https://hightower.space/contact/).
+Now, we're ready to go! Navigate to the directory where you cloned this project (go into the `tcex-playground` directory).
+
+Try running: `tclib` (this is the TCEX function to install all of the packages you will need for testing the code in the tcex-playground).
+
+Once this finishes, run: `tcrun` (if this throws an error which says something like `IndexError: list index out of range`, try running: `tcrun --0`). This should list all of the indicators in the owner you specified as the `API_DEFAULT_ORG` environment variable.
+
+If it doesn't work, feel free to raise an [issue](https://gitlab.com/fhightower-tc/tcex-playground/issues/new) or [contact me](https://hightower.space/contact/).
