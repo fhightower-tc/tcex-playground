@@ -4,9 +4,9 @@
 
 There are three steps to getting started with TCEX:
 
-- [installation](#installation)
-- [setup](#setup)
-- [usage](#usage)
+- [Installation](#installation)
+- [Setup](#setup)
+- [Usage](#usage)
 
 ## Installation
 
@@ -67,5 +67,33 @@ Now, we're ready to go! Navigate to the directory where you cloned this project 
 Try running: `tclib` (this is the TCEX function to install all of the packages you will need for testing the code in the tcex-playground).
 
 Once this finishes, run: `tcrun` (if this throws an error which says something like `IndexError: list index out of range`, try running: `tcrun --0`). This should list all of the indicators in the owner you specified as the `API_DEFAULT_ORG` environment variable.
+
+### Accessing the Datastore
+
+If you are running a script locally, but need it to be able to access the [datastore](https://pb-constructs.hightower.space/playbooks/introductions/datastore), you can [get a developer token](https://pb-constructs.hightower.space/playbooks/introductions/datastore#developer-tokens) and modify the `tcex.json` file to look something like:
+
+```
+{
+  "profiles": [{
+    "args": {
+      "logging": "debug",
+      "tc_api_path": "$env.TC_API_PATH",
+      "tc_log_path": "log",
+      "tc_log_to_api": true,
+      "tc_out_path": "log",
+      "tc_temp_path": "log",
+      "api_default_org": "$env.API_DEFAULT_ORG",
+      "tc_token": "12:3456:e8f2086-0c998-0c998-0c998-e8f2080c9986:-1:1536255000:PpKs8:PtMnyJ6cplK3wA79D8L452ThX87tU8poRISKr99w+UI=",
+      "tc_token_expires": "1536255000"
+    },
+    "groups": ["run-all"],
+    "install_json": "install.json",
+    "quiet": false,
+    "profile_name": "default"
+  }]
+}
+```
+
+Notice that the entries for `api_access_id` and `api_secret_key` have been removed and entries for `tc_token` and `tc_token_expires` have been added. This will allow the script to do everything that a normal script can do *and* be able to access the datastore.
 
 If it doesn't work, feel free to raise an [issue](https://gitlab.com/fhightower-tc/tcex-playground/issues/new) or [contact me](https://hightower.space/contact/).
